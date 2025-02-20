@@ -1,15 +1,16 @@
 import { ComponentProps, ReactNode } from 'react'
+import {twMerge} from "tailwind-merge"
 
 interface IconButtonProps extends ComponentProps<'button'> {
   children: ReactNode
 }
 
-export function IconButton(props: IconButtonProps) {
+export function IconButton({className, ...props}: IconButtonProps) {
   return (
     <button
-      className=" 
-      px-1.5 bg-gray-500 text-blue rounded-md
-      cursor-pointer transition-colors duration-200 hover:bg-blue hover:text-gray-900"
+      className={twMerge(`px-1.5 bg-gray-500 text-blue rounded-md h-8
+        cursor-pointer transition-colors duration-200 hover:bg-blue hover:text-gray-900`,className
+        )}
       {...props}
     >
       {props.children || 'Enviar'}
